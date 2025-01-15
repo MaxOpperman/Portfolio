@@ -87,12 +87,12 @@ export default function Topbar({
                 }}
               >
                 <Typography
-                  component="a"
-                  href={`#${section}`}
                   onClick={(event) => {
                     event.preventDefault();
                     setActiveSection(section);
-                  }}sx={{
+                  }}
+                  sx={{
+                    cursor: 'pointer',
                     position: 'relative',
                     display: 'inline-block',
                     color: 'inherit',
@@ -101,7 +101,7 @@ export default function Topbar({
                     '&::after': {
                       content: '""',
                       position: 'absolute',
-                      bottom: 0,
+                      bottom: '-3px',
                       left: 0,
                       width: activeSection === section ? '100%' : '0',
                       height: '2px',

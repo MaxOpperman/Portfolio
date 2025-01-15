@@ -24,18 +24,20 @@ function App() {
       },
     }));
   }, [currentTheme]);
+
+  const sections = ['home', 'projects', 'about'];
   React.useEffect(() => {
-    const home = document.getElementById("home");
-    const projects = document.getElementById("projects");
-    const about = document.getElementById("about");
-    if (activeSection === "home") {
-      home.scrollIntoView({ behavior: "smooth" });
-    } else if (activeSection === "projects") {
-      projects.scrollIntoView({ behavior: "smooth" });
-    } else if (activeSection === "about") {
-      about.scrollIntoView({ behavior: "smooth" });
-    }
+    sections.forEach((section) => {
+      const element = document.getElementById(section);
+      if (activeSection === section) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      }
+    });
   }, [activeSection]);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -45,13 +47,13 @@ function App() {
         activeSection={activeSection}
         setActiveSection={setActiveSection}
       />
-      <div id="home">
-        <Home />
+      <div className="section" id="home">
+        <Home currentTheme={currentTheme} />
       </div>
-      <div id="projects">
+      <div className="section" id="projects">
         <Projects />
       </div>
-      <div id="about">
+      <div className="section" id="about">
         <About />
       </div>
     </ThemeProvider>

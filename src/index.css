@@ -24,3 +24,7 @@ h5,
 h6 {
     font-family: Audiowide, serif;
 }
+
+div {
+  scroll-margin-top: 64px;
+}
