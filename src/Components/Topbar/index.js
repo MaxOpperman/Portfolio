@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
-import Tooltip from '@mui/material/Tooltip';
 import ThemeToggler from '../ThemeToggler';
 import Container from '@mui/material/Container';
 
@@ -64,15 +63,6 @@ export default function Topbar({
             <Typography
               variant="h6"
               noWrap
-              sx={{
-                mx: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'Audiowide',
-                fontWeight: 700,
-                color: 'inherit',
-                textDecoration: 'none',
-                cursor: 'default',
-              }}
             >
               MAX
             </Typography>
@@ -91,22 +81,10 @@ export default function Topbar({
                     event.preventDefault();
                     setActiveSection(section);
                   }}
+                  variant='subtitle1'
                   sx={{
-                    cursor: 'pointer',
-                    position: 'relative',
-                    display: 'inline-block',
-                    color: 'inherit',
-                    mx: 1,
-                    textDecoration: 'none',
                     '&::after': {
-                      content: '""',
-                      position: 'absolute',
-                      bottom: '-3px',
-                      left: 0,
                       width: activeSection === section ? '100%' : '0',
-                      height: '2px',
-                      backgroundColor: 'currentColor',
-                      transition: 'width 0.3s ease-in-out',
                     },
                   }}
                 >
@@ -115,9 +93,7 @@ export default function Topbar({
               </Box>
             ))}
             <Box sx={{ flexGrow: 0, display: 'flex', mx: 2, size: 32 }}>
-              <Tooltip title="Dark Mode">
-                <ThemeToggler theme={currentTheme} themeSetter={setCurrentTheme} />
-              </Tooltip>
+              <ThemeToggler theme={currentTheme} themeSetter={setCurrentTheme} />
             </Box>
         </Toolbar>
         </Container>     

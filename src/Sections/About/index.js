@@ -1,9 +1,12 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
+import { useTheme } from '@mui/material/styles';
 
 export default function About() {
+  const theme = useTheme();
+
   return (
-    <Box sx={{ background: 'brown', padding: '1rem' }}>
+    <Box sx={{ backgroundColor: theme.palette.background.default, padding: '1rem' }}>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin scelerisque nunc quis sem porta cursus et ac lacus. Maecenas consequat condimentum mauris eu sagittis. In vehicula, eros et viverra porttitor, turpis mi tempor nulla, in convallis quam justo sit amet nulla. Aliquam erat volutpat. Maecenas eros mi, dictum eu libero id, eleifend sollicitudin ex. Proin aliquam lorem in volutpat ornare. Aliquam eget condimentum tellus. Maecenas gravida pellentesque libero, nec cursus lacus tempus at. Quisque eu dui mauris. Morbi lacinia id mi vel blandit. Aenean dignissim ante blandit, sollicitudin turpis sit amet, auctor justo. Etiam urna lectus, eleifend vel velit nec, varius dignissim est. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel euismod orci.
       Maecenas eleifend nulla et dignissim euismod. Morbi aliquam lectus et nisi porttitor, a finibus enim molestie. Maecenas non ante sed est congue iaculis. Nulla scelerisque viverra tincidunt. Curabitur risus tellus, porta nec bibendum quis, consequat vel dui. Proin sit amet sem sit amet felis ultricies pulvinar sed a lacus. Etiam iaculis, turpis convallis efficitur venenatis, lacus orci ultricies nulla, non commodo eros velit id sem. Morbi id arcu eget sem vulputate consequat vel non metus. Ut venenatis aliquam feugiat. Pellentesque feugiat turpis id quam rhoncus, non pharetra quam finibus. Sed at suscipit mauris. Nam quis tellus varius, porttitor nulla vitae, congue ex.
       Aenean eget varius neque, consectetur hendrerit libero. Pellentesque sapien nisi, malesuada ut fringilla molestie, commodo ut urna. Aliquam in est et lorem scelerisque viverra. In posuere neque a tempor bibendum. Donec et sem eu sem tristique feugiat vel blandit orci. Nullam ac mauris ipsum. Sed convallis accumsan metus sit amet lacinia. Fusce vitae dui semper, pulvinar enim quis, mattis diam. Aliquam at diam sit amet metus hendrerit rhoncus. Proin eleifend libero eros, non facilisis mauris auctor sed. Quisque varius venenatis nibh eget laoreet. Nullam in odio risus. Aenean quis eros lobortis, volutpat urna at, elementum ex.
