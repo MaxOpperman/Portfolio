@@ -39,12 +39,12 @@ function App() {
           '"Franklin Gothic Medium"',
           '"serif"',
         ].join(','),
-        textShadow: '2px 2px 4px black',
+        textShadow: '1px 1px 2px black',
         color: 'inherit',
         userSelect: 'none',
       },
       h3: {
-        textShadow: '2px 2px 4px black',
+        textShadow: '1px 1px 2px black',
         color: 'inherit',
         margin: '0 8px',
         userSelect: 'none',
@@ -91,7 +91,6 @@ function App() {
     setTheme((prevTheme) => createTheme({
       ...prevTheme,
       palette: {
-        ...prevTheme.palette,
         mode: currentTheme,
       },
     }));

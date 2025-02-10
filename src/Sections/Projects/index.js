@@ -1,22 +1,144 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
+import { Box, Container, Typography} from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import { FaFileAlt } from 'react-icons/fa';
 
 
 export default function Projects() {
   const theme = useTheme();
+  const projectList = [
+    {
+      title: 'Hamiltonian Paths in Neighbor-Swap Graphs',
+      description: (
+        <>
+          For my Master Graduation Project, I researched Hamiltonian Paths in Neighbor-Swap Graphs.
+          I constructed a proof to show that a relaxation of these paths is possible in cases where a perfect Hamiltonian path is not possible.
+          <br />
+          <Typography component="a" href="/Lehmers_Conjecture_and_Hamiltonian_Paths_in_Neighbor_swap_Graphs.pdf" style={{ color: 'inherit' }}>My Master's Thesis is available here</Typography>.
+        </>
+      ),
+      image: '/permutahedron.png',
+      redirectLink: '/Lehmers_Conjecture_and_Hamiltonian_Paths_in_Neighbor_swap_Graphs.pdf',
+    },
+    {
+      title: 'Prodrive Technologies',
+      description: (
+        <>
+          Between November 2021 and April 2024 I worked part-time at Prodrive Technologies.
+          I worked on multiple projects as a Full-Stack developer during this time. 
+        </>
+      ),
+      image: '/PT_logo2020_Blue-CMYK.png',
+      redirectLink: 'https://prodrive-technologies.com/',
+    },
+    {
+      title: 'ParelPracht',
+      description: (
+        <>
+          ParelPracht is a CRM system for Study Association GEWIS.
+          During my board year (2020-2021), I worked on the development of the
+          {' '}
+          <Typography component="a" href="https://github.com/GEWIS/parelpracht-client" style={{ color: 'inherit' }}>front-end</Typography>
+          {' and '}
+          <Typography component="a" href="https://github.com/GEWIS/parelpracht-server" style={{ color: 'inherit' }}>back-end</Typography> of this project.
+        </>
+      ),
+      image: theme.palette.mode === 'dark' ? '/ParelPracht-peach.png' : '/ParelPracht-blue.png',
+      redirectLink: 'https://parelpracht.nl/',
+    },
+    {
+      title: 'TU/ecomotive',
+      description: (
+        <>
+          As part of the sixth team of TU/ecomotive, I worked on
+          {' '}
+          <Typography component="a" href="https://www.tuecomotive.nl/luca/" style={{ color: 'inherit' }}>
+            Luca
+          </Typography>
+          ; a car made mostly from waste materials.
+          In a multi-disciplinary team, I gained experience with programming embedded systems.
+        </>
+      ),
+      image: '/Luca.jpg',
+      redirectLink: 'https://www.tuecomotive.nl/luca/',
+    },
+    {
+      title: 'Dashboard for Building Sensors',
+      description: (
+        <>
+          As the final project of my Bachelor's degree, I worked on a dashboard for building sensors.
+          This project is used to monitor timesensor data and visualize it in a user-friendly way.
+        </>
+      ),
+      image: '/DaBS.png',
+      redirectLink: null,
+    },
+    {
+      title: 'Resume',
+      description: (
+        <>
+          If you are interested in a more detailed overview of my work experience, you can download my resume here!
+        </>
+      ),
+      image: <FaFileAlt size={80} />,
+      redirectLink: '/CV_Max_Opperman.pdf',
+    },
+  ];
   return (
-    <Box sx={{ backgroundColor: theme.palette.background.default, padding: '1rem' }}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin scelerisque nunc quis sem porta cursus et ac lacus. Maecenas consequat condimentum mauris eu sagittis. In vehicula, eros et viverra porttitor, turpis mi tempor nulla, in convallis quam justo sit amet nulla. Aliquam erat volutpat. Maecenas eros mi, dictum eu libero id, eleifend sollicitudin ex. Proin aliquam lorem in volutpat ornare. Aliquam eget condimentum tellus. Maecenas gravida pellentesque libero, nec cursus lacus tempus at. Quisque eu dui mauris. Morbi lacinia id mi vel blandit. Aenean dignissim ante blandit, sollicitudin turpis sit amet, auctor justo. Etiam urna lectus, eleifend vel velit nec, varius dignissim est. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel euismod orci.
-      Maecenas eleifend nulla et dignissim euismod. Morbi aliquam lectus et nisi porttitor, a finibus enim molestie. Maecenas non ante sed est congue iaculis. Nulla scelerisque viverra tincidunt. Curabitur risus tellus, porta nec bibendum quis, consequat vel dui. Proin sit amet sem sit amet felis ultricies pulvinar sed a lacus. Etiam iaculis, turpis convallis efficitur venenatis, lacus orci ultricies nulla, non commodo eros velit id sem. Morbi id arcu eget sem vulputate consequat vel non metus. Ut venenatis aliquam feugiat. Pellentesque feugiat turpis id quam rhoncus, non pharetra quam finibus. Sed at suscipit mauris. Nam quis tellus varius, porttitor nulla vitae, congue ex.
-      Aenean eget varius neque, consectetur hendrerit libero. Pellentesque sapien nisi, malesuada ut fringilla molestie, commodo ut urna. Aliquam in est et lorem scelerisque viverra. In posuere neque a tempor bibendum. Donec et sem eu sem tristique feugiat vel blandit orci. Nullam ac mauris ipsum. Sed convallis accumsan metus sit amet lacinia. Fusce vitae dui semper, pulvinar enim quis, mattis diam. Aliquam at diam sit amet metus hendrerit rhoncus. Proin eleifend libero eros, non facilisis mauris auctor sed. Quisque varius venenatis nibh eget laoreet. Nullam in odio risus. Aenean quis eros lobortis, volutpat urna at, elementum ex.
-      Vivamus sodales vel nisl sed scelerisque. Praesent fermentum turpis vitae risus placerat pellentesque. Donec ac diam lacinia, blandit massa consequat, auctor ante. Ut a tempus sem. Aenean vitae ex eu purus pharetra aliquam. Maecenas posuere scelerisque leo ut sodales. Aenean non suscipit ante. Sed iaculis condimentum risus, quis hendrerit elit sagittis sed. Nam pulvinar, mauris id vehicula cursus, velit nisi dapibus nisi, nec porta nulla dui nec sapien. Maecenas feugiat libero est, vitae tempor diam pulvinar bibendum. Phasellus iaculis, urna iaculis luctus vestibulum, ante leo ullamcorper tortor, non convallis nibh diam varius sem.
-      Cras commodo ante et tristique imperdiet. Donec et commodo arcu. Donec convallis quam fermentum dolor malesuada euismod. Fusce ut elementum odio. Cras consectetur iaculis augue quis mattis. Pellentesque quis diam et tellus mattis efficitur. Vivamus auctor, risus in rhoncus scelerisque, sapien sapien pellentesque neque, vitae iaculis lacus diam ut nisi. 
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin scelerisque nunc quis sem porta cursus et ac lacus. Maecenas consequat condimentum mauris eu sagittis. In vehicula, eros et viverra porttitor, turpis mi tempor nulla, in convallis quam justo sit amet nulla. Aliquam erat volutpat. Maecenas eros mi, dictum eu libero id, eleifend sollicitudin ex. Proin aliquam lorem in volutpat ornare. Aliquam eget condimentum tellus. Maecenas gravida pellentesque libero, nec cursus lacus tempus at. Quisque eu dui mauris. Morbi lacinia id mi vel blandit. Aenean dignissim ante blandit, sollicitudin turpis sit amet, auctor justo. Etiam urna lectus, eleifend vel velit nec, varius dignissim est. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel euismod orci.
-      Maecenas eleifend nulla et dignissim euismod. Morbi aliquam lectus et nisi porttitor, a finibus enim molestie. Maecenas non ante sed est congue iaculis. Nulla scelerisque viverra tincidunt. Curabitur risus tellus, porta nec bibendum quis, consequat vel dui. Proin sit amet sem sit amet felis ultricies pulvinar sed a lacus. Etiam iaculis, turpis convallis efficitur venenatis, lacus orci ultricies nulla, non commodo eros velit id sem. Morbi id arcu eget sem vulputate consequat vel non metus. Ut venenatis aliquam feugiat. Pellentesque feugiat turpis id quam rhoncus, non pharetra quam finibus. Sed at suscipit mauris. Nam quis tellus varius, porttitor nulla vitae, congue ex.
-      Aenean eget varius neque, consectetur hendrerit libero. Pellentesque sapien nisi, malesuada ut fringilla molestie, commodo ut urna. Aliquam in est et lorem scelerisque viverra. In posuere neque a tempor bibendum. Donec et sem eu sem tristique feugiat vel blandit orci. Nullam ac mauris ipsum. Sed convallis accumsan metus sit amet lacinia. Fusce vitae dui semper, pulvinar enim quis, mattis diam. Aliquam at diam sit amet metus hendrerit rhoncus. Proin eleifend libero eros, non facilisis mauris auctor sed. Quisque varius venenatis nibh eget laoreet. Nullam in odio risus. Aenean quis eros lobortis, volutpat urna at, elementum ex.
-      Vivamus sodales vel nisl sed scelerisque. Praesent fermentum turpis vitae risus placerat pellentesque. Donec ac diam lacinia, blandit massa consequat, auctor ante. Ut a tempus sem. Aenean vitae ex eu purus pharetra aliquam. Maecenas posuere scelerisque leo ut sodales. Aenean non suscipit ante. Sed iaculis condimentum risus, quis hendrerit elit sagittis sed. Nam pulvinar, mauris id vehicula cursus, velit nisi dapibus nisi, nec porta nulla dui nec sapien. Maecenas feugiat libero est, vitae tempor diam pulvinar bibendum. Phasellus iaculis, urna iaculis luctus vestibulum, ante leo ullamcorper tortor, non convallis nibh diam varius sem.
-      Cras commodo ante et tristique imperdiet. Donec et commodo arcu. Donec convallis quam fermentum dolor malesuada euismod. Fusce ut elementum odio. Cras consectetur iaculis augue quis mattis. Pellentesque quis diam et tellus mattis efficitur. Vivamus auctor, risus in rhoncus scelerisque, sapien sapien pellentesque neque, vitae iaculis lacus diam ut nisi. 
+    <Box sx={{ width: '100%', backgroundColor: theme.palette.background.default, padding: '2rem 0' }}>
+      <Container sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <Typography variant='h2' sx={{ width: '100%', textAlign: 'center', marginBottom: '2rem' }}>
+          Projects
+        </Typography>
+        {projectList.map((project) => (
+          <Box
+            key={project.title}
+            sx={{
+              width: '300px',
+              margin: '1rem',
+              padding: '1rem',
+              backgroundColor: theme.palette.background.paper,
+              boxShadow: theme.shadows[3],
+              borderRadius: '8px',
+              textAlign: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              boxSizing: 'border-box',
+            }}
+          >
+            <Typography variant='h5'>
+              {project.title}
+            </Typography>
+            {project.redirectLink ? (
+              <Typography component="a" href={project.redirectLink} style={{ color: 'inherit' }}>
+                {typeof project.image === 'string' ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    style={{ width: '100%', borderRadius: '8px', margin: '1rem 0' }}
+                  />
+                ) : (
+                  <Box sx={{ margin: '1rem 0' }}>{project.image}</Box>
+                )}
+              </Typography>
+            ) : (
+              typeof project.image === 'string' ? (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  style={{ width: '100%', borderRadius: '8px', margin: '1rem 0' }}
+                />
+              ) : (
+                <Box sx={{ margin: '1rem', color: 'inherit' }}>{project.image}</Box>
+              )
+            )}
+            <Typography variant='body1' sx={{ marginTop: '1rem' }}>
+              {project.description}
+            </Typography>
+          </Box>
+        ))}
+      </Container>
     </Box>
   );
 }

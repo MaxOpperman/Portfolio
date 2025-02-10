@@ -5,7 +5,7 @@ module.exports = {
     entry: path.join(__dirname, "src", "index.js"),
     output: {
       path: path.resolve(__dirname, "build"),
-      publicPath: 'auto',
+      publicPath: '/public/',
     },
     plugins: [
       new HtmlWebpackPlugin({
