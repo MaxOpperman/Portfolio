@@ -14,7 +14,9 @@ export default function Projects() {
           For my Master Graduation Project, I researched Hamiltonian Paths in Neighbor-Swap Graphs.
           I constructed a proof to show that a relaxation of these paths is possible in cases where a perfect Hamiltonian path is not possible.
           <br />
-          <Typography component="a" href="/Lehmers_Conjecture_and_Hamiltonian_Paths_in_Neighbor_swap_Graphs.pdf" style={{ color: 'inherit' }}>My Master's Thesis is available here</Typography>.
+          <Typography component="a" href="/Lehmers_Conjecture_and_Hamiltonian_Paths_in_Neighbor_swap_Graphs.pdf" style={{ color: 'inherit' }}>
+            My Master&apos;s Thesis is available here
+          </Typography>.
         </>
       ),
       image: '/permutahedron.png',
@@ -66,7 +68,7 @@ export default function Projects() {
       title: 'Dashboard for Building Sensors',
       description: (
         <>
-          As the final project of my Bachelor's degree, I worked on a dashboard for building sensors.
+          As the final project of my Bachelor&apos; s degree, I worked on a dashboard for building sensors.
           This project is used to monitor timesensor data and visualize it in a user-friendly way.
         </>
       ),
@@ -77,10 +79,11 @@ export default function Projects() {
       title: 'Resume',
       description: (
         <>
-          If you are interested in a more detailed overview of my work experience, you can download my resume here!
+          If you are interested in a more detailed overview of my work experience, 
+          you can download my resume <Typography component="a" href="/CV_Max_Opperman.pdf" download style={{ color: 'inherit'}}> here!</Typography>
         </>
       ),
-      image: <FaFileAlt size={80} />,
+      image: <FaFileAlt size={90} />,
       redirectLink: '/CV_Max_Opperman.pdf',
     },
   ];
