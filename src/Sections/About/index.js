@@ -1,22 +1,42 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
+import { Box, Container, Fade, Grow, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import { useInView } from 'react-intersection-observer';
 
 export default function About() {
   const theme = useTheme();
 
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <Box sx={{ backgroundColor: theme.palette.background.default, padding: '1rem' }}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin scelerisque nunc quis sem porta cursus et ac lacus. Maecenas consequat condimentum mauris eu sagittis. In vehicula, eros et viverra porttitor, turpis mi tempor nulla, in convallis quam justo sit amet nulla. Aliquam erat volutpat. Maecenas eros mi, dictum eu libero id, eleifend sollicitudin ex. Proin aliquam lorem in volutpat ornare. Aliquam eget condimentum tellus. Maecenas gravida pellentesque libero, nec cursus lacus tempus at. Quisque eu dui mauris. Morbi lacinia id mi vel blandit. Aenean dignissim ante blandit, sollicitudin turpis sit amet, auctor justo. Etiam urna lectus, eleifend vel velit nec, varius dignissim est. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel euismod orci.
-      Maecenas eleifend nulla et dignissim euismod. Morbi aliquam lectus et nisi porttitor, a finibus enim molestie. Maecenas non ante sed est congue iaculis. Nulla scelerisque viverra tincidunt. Curabitur risus tellus, porta nec bibendum quis, consequat vel dui. Proin sit amet sem sit amet felis ultricies pulvinar sed a lacus. Etiam iaculis, turpis convallis efficitur venenatis, lacus orci ultricies nulla, non commodo eros velit id sem. Morbi id arcu eget sem vulputate consequat vel non metus. Ut venenatis aliquam feugiat. Pellentesque feugiat turpis id quam rhoncus, non pharetra quam finibus. Sed at suscipit mauris. Nam quis tellus varius, porttitor nulla vitae, congue ex.
-      Aenean eget varius neque, consectetur hendrerit libero. Pellentesque sapien nisi, malesuada ut fringilla molestie, commodo ut urna. Aliquam in est et lorem scelerisque viverra. In posuere neque a tempor bibendum. Donec et sem eu sem tristique feugiat vel blandit orci. Nullam ac mauris ipsum. Sed convallis accumsan metus sit amet lacinia. Fusce vitae dui semper, pulvinar enim quis, mattis diam. Aliquam at diam sit amet metus hendrerit rhoncus. Proin eleifend libero eros, non facilisis mauris auctor sed. Quisque varius venenatis nibh eget laoreet. Nullam in odio risus. Aenean quis eros lobortis, volutpat urna at, elementum ex.
-      Vivamus sodales vel nisl sed scelerisque. Praesent fermentum turpis vitae risus placerat pellentesque. Donec ac diam lacinia, blandit massa consequat, auctor ante. Ut a tempus sem. Aenean vitae ex eu purus pharetra aliquam. Maecenas posuere scelerisque leo ut sodales. Aenean non suscipit ante. Sed iaculis condimentum risus, quis hendrerit elit sagittis sed. Nam pulvinar, mauris id vehicula cursus, velit nisi dapibus nisi, nec porta nulla dui nec sapien. Maecenas feugiat libero est, vitae tempor diam pulvinar bibendum. Phasellus iaculis, urna iaculis luctus vestibulum, ante leo ullamcorper tortor, non convallis nibh diam varius sem.
-      Cras commodo ante et tristique imperdiet. Donec et commodo arcu. Donec convallis quam fermentum dolor malesuada euismod. Fusce ut elementum odio. Cras consectetur iaculis augue quis mattis. Pellentesque quis diam et tellus mattis efficitur. Vivamus auctor, risus in rhoncus scelerisque, sapien sapien pellentesque neque, vitae iaculis lacus diam ut nisi. 
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin scelerisque nunc quis sem porta cursus et ac lacus. Maecenas consequat condimentum mauris eu sagittis. In vehicula, eros et viverra porttitor, turpis mi tempor nulla, in convallis quam justo sit amet nulla. Aliquam erat volutpat. Maecenas eros mi, dictum eu libero id, eleifend sollicitudin ex. Proin aliquam lorem in volutpat ornare. Aliquam eget condimentum tellus. Maecenas gravida pellentesque libero, nec cursus lacus tempus at. Quisque eu dui mauris. Morbi lacinia id mi vel blandit. Aenean dignissim ante blandit, sollicitudin turpis sit amet, auctor justo. Etiam urna lectus, eleifend vel velit nec, varius dignissim est. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel euismod orci.
-      Maecenas eleifend nulla et dignissim euismod. Morbi aliquam lectus et nisi porttitor, a finibus enim molestie. Maecenas non ante sed est congue iaculis. Nulla scelerisque viverra tincidunt. Curabitur risus tellus, porta nec bibendum quis, consequat vel dui. Proin sit amet sem sit amet felis ultricies pulvinar sed a lacus. Etiam iaculis, turpis convallis efficitur venenatis, lacus orci ultricies nulla, non commodo eros velit id sem. Morbi id arcu eget sem vulputate consequat vel non metus. Ut venenatis aliquam feugiat. Pellentesque feugiat turpis id quam rhoncus, non pharetra quam finibus. Sed at suscipit mauris. Nam quis tellus varius, porttitor nulla vitae, congue ex.
-      Aenean eget varius neque, consectetur hendrerit libero. Pellentesque sapien nisi, malesuada ut fringilla molestie, commodo ut urna. Aliquam in est et lorem scelerisque viverra. In posuere neque a tempor bibendum. Donec et sem eu sem tristique feugiat vel blandit orci. Nullam ac mauris ipsum. Sed convallis accumsan metus sit amet lacinia. Fusce vitae dui semper, pulvinar enim quis, mattis diam. Aliquam at diam sit amet metus hendrerit rhoncus. Proin eleifend libero eros, non facilisis mauris auctor sed. Quisque varius venenatis nibh eget laoreet. Nullam in odio risus. Aenean quis eros lobortis, volutpat urna at, elementum ex.
-      Vivamus sodales vel nisl sed scelerisque. Praesent fermentum turpis vitae risus placerat pellentesque. Donec ac diam lacinia, blandit massa consequat, auctor ante. Ut a tempus sem. Aenean vitae ex eu purus pharetra aliquam. Maecenas posuere scelerisque leo ut sodales. Aenean non suscipit ante. Sed iaculis condimentum risus, quis hendrerit elit sagittis sed. Nam pulvinar, mauris id vehicula cursus, velit nisi dapibus nisi, nec porta nulla dui nec sapien. Maecenas feugiat libero est, vitae tempor diam pulvinar bibendum. Phasellus iaculis, urna iaculis luctus vestibulum, ante leo ullamcorper tortor, non convallis nibh diam varius sem.
-      Cras commodo ante et tristique imperdiet. Donec et commodo arcu. Donec convallis quam fermentum dolor malesuada euismod. Fusce ut elementum odio. Cras consectetur iaculis augue quis mattis. Pellentesque quis diam et tellus mattis efficitur. Vivamus auctor, risus in rhoncus scelerisque, sapien sapien pellentesque neque, vitae iaculis lacus diam ut nisi. 
+    <Box sx={{ width: '100%', backgroundColor: theme.palette.background.default, padding: '2rem 0' }}>
+      <Container sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <Typography ref={ref} variant='h2' sx={{ width: '100%', textAlign: 'center', marginBottom: '2rem' }}>
+          About
+        </Typography>
+        <Fade in={inView} timeout={1000}>
+          <Box sx={{ width: '100%' }}>
+            <Grow in={inView} timeout={1000}>
+              <Typography variant='body1' sx={{ width: '100%', textAlign: 'left' }}>
+                I am always eager to find the solution and help out. With my work, I hope to contribute to society and improve people&apos;s lives.
+                As a software engineering, I like to work on projects that have a positive impact on the world.
+                I have experience with a variety of programming languages including TypeScript, JavaScript, Python, and Java.
+                Furthermore, I have experience with a variety of frameworks and libraries including React, Django, NodeJS, Express, and Docker.
+                I have a strong understanding of software engineering principles and a passion for learning new technologies.
+                <br />
+                In my free time, I enjoy working on personal projects. Moreover, I enjoy playing sports; I play field hockey and like to go sailing.
+                I like to keep myself busy and I am always looking for new challenges.
+              </Typography>
+            </Grow>
+          </Box>
+        </Fade>
+      </Container>
+      <Typography variant='body2' color='textSecondary' sx={{ width: '100%', textAlign: 'center', marginTop: '2rem' }}>
+        © {new Date().getFullYear()} Max Opperman. All rights reserved.
+      </Typography>
     </Box>
   );
 }

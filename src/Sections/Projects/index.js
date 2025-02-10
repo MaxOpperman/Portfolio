@@ -1,11 +1,44 @@
 import * as React from 'react';
-import { Box, Container, Typography} from '@mui/material';
+import { Box, Container, Fade, Grow, Typography} from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { FaFileAlt } from 'react-icons/fa';
+import { useInView } from 'react-intersection-observer';
 
+
+const FadeInBox = ({ children }) => {
+  const theme = useTheme();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+  return (
+    <Grow in={inView} timeout={1000}>
+      <Fade in={inView} timeout={1000}>  
+        <Box
+          ref={ref}
+          sx={{
+            width: '300px',
+            margin: '1rem',
+            padding: '1rem',
+            backgroundColor: theme.palette.background.paper,
+            boxShadow: theme.shadows[3],
+            borderRadius: '8px',
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            boxSizing: 'border-box',
+          }}
+        >
+          {children}
+        </Box>
+      </Fade>
+    </Grow>
+  );
+};
 
 export default function Projects() {
   const theme = useTheme();
+
   const projectList = [
     {
       title: 'Hamiltonian Paths in Neighbor-Swap Graphs',
@@ -13,6 +46,7 @@ export default function Projects() {
         <>
           For my Master Graduation Project, I researched Hamiltonian Paths in Neighbor-Swap Graphs.
           I constructed a proof to show that a relaxation of these paths is possible in cases where a perfect Hamiltonian path is not possible.
+          I gradutated with a 9/10 for this project.
           <br />
           <Typography component="a" href="/Lehmers_Conjecture_and_Hamiltonian_Paths_in_Neighbor_swap_Graphs.pdf" style={{ color: 'inherit' }}>
             My Master&apos;s Thesis is available here
@@ -76,6 +110,17 @@ export default function Projects() {
       redirectLink: null,
     },
     {
+      title: 'Board Year GEWIS',
+      description: (
+        <>
+          In 2020-2021 I was part of the board of Study Association GEWIS.
+          During this year as the secretary, I developed my soft skills and learned about the inner workings of an association.
+        </>
+      ),
+      image: '/GEWIS.jpg',
+      redirectLink: 'https://gewis.nl/',
+    },
+    {
       title: 'Resume',
       description: (
         <>
@@ -87,29 +132,15 @@ export default function Projects() {
       redirectLink: '/CV_Max_Opperman.pdf',
     },
   ];
+
   return (
     <Box sx={{ width: '100%', backgroundColor: theme.palette.background.default, padding: '2rem 0' }}>
       <Container sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
         <Typography variant='h2' sx={{ width: '100%', textAlign: 'center', marginBottom: '2rem' }}>
-          Projects
+          Projects & Experience
         </Typography>
         {projectList.map((project) => (
-          <Box
-            key={project.title}
-            sx={{
-              width: '300px',
-              margin: '1rem',
-              padding: '1rem',
-              backgroundColor: theme.palette.background.paper,
-              boxShadow: theme.shadows[3],
-              borderRadius: '8px',
-              textAlign: 'center',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              boxSizing: 'border-box',
-            }}
-          >
+          <FadeInBox key={project.title}>
             <Typography variant='h5'>
               {project.title}
             </Typography>
@@ -139,7 +170,7 @@ export default function Projects() {
             <Typography variant='body1' sx={{ marginTop: '1rem' }}>
               {project.description}
             </Typography>
-          </Box>
+          </FadeInBox>
         ))}
       </Container>
     </Box>
