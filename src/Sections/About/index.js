@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Box, Container, Fade, Grow, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import { MdOutlineEmail } from 'react-icons/md';
 import { useInView } from 'react-intersection-observer';
 
 export default function About() {
@@ -30,6 +31,21 @@ export default function About() {
                 In my free time, I enjoy working on personal projects. Moreover, I enjoy playing sports; I play field hockey and like to go sailing.
                 I like to keep myself busy and I am always looking for new challenges.
               </Typography>
+            </Grow>
+          </Box>
+        </Fade>
+        <Fade in={inView} timeout={1000}>
+          <Box sx={{ width: '100%' }}>
+            <Grow in={inView} timeout={1000}>
+              <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}>
+                <Typography variant='h5' sx={{ width: '100%', textAlign: 'center' }}>
+                  Feel free to reach out to me!
+                </Typography>
+                <br />
+                <Typography component='a' href='mailto:mail@maxopperman.nl' style={{ color: 'inherit' }} sx={{ width: '100%', textAlign: 'center' }}>
+                  <MdOutlineEmail size={40} />
+                </Typography>
+                </Box>
             </Grow>
           </Box>
         </Fade>
