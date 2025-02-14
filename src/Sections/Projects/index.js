@@ -5,11 +5,6 @@ import { FaFileAlt } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 import PropTypes from 'prop-types';
 
-
-FadeInBox.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-
 const FadeInBox = ({ children }) => {
   const theme = useTheme();
   const [ref, inView] = useInView({
@@ -39,6 +34,10 @@ const FadeInBox = ({ children }) => {
       </Fade>
     </Grow>
   );
+};
+
+FadeInBox.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default function Projects() {
@@ -85,7 +84,7 @@ export default function Projects() {
         </>
       ),
       image: theme.palette.mode === 'dark' ? '/images/ParelPracht-peach.png' : '/images/ParelPracht-blue.png',
-      redirectLink: 'https://parelpracht.nl/',
+      redirectLink: 'https://github.nl/GEWIS/parelpracht-client',
     },
     {
       title: 'TU/ecomotive',
