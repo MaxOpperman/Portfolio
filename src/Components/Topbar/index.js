@@ -36,6 +36,17 @@ ElevationScroll.propTypes = {
   window: PropTypes.func,
 };
 
+Topbar.propTypes = {
+  currentTheme: PropTypes.string.isRequired,
+  setCurrentTheme: PropTypes.func.isRequired,
+  activeSection: PropTypes.string.isRequired,
+  setActiveSection: PropTypes.func.isRequired,
+  isScrollingByClick: PropTypes.bool.isRequired,
+  setIsScrollingByClick: PropTypes.func.isRequired,
+  isScrollingManually: PropTypes.bool.isRequired,
+  setIsScrollingManually: PropTypes.func.isRequired,
+};
+
 export default function Topbar({
   currentTheme,
   setCurrentTheme,
@@ -48,27 +59,14 @@ export default function Topbar({
   ...props
 }) {
   const sections = ['home', 'projects', 'about'];
-  const [lastScrollPosition, setLastScrollPosition] = React.useState(0);
-  const [isScrollingUp, setIsScrollingUp] = React.useState(false);
 
   React.useEffect(() => {
     const handleScroll = () => {
       if (isScrollingByClick) return; // Skip scroll detection if user clicked
-  
+
       setIsScrollingManually(true); // Mark that the user is scrolling manually
   
       const scrollPosition = window.scrollY;
-      const documentHeight = document.body.scrollHeight;
-      const windowHeight = window.innerHeight;
-      
-      // Detect scroll direction: If user is scrolling up, set isScrollingUp
-      setIsScrollingUp(scrollPosition < lastScrollPosition);
-      setLastScrollPosition(scrollPosition);
-  
-      // If user is near the bottom and scrolling up, don't allow scrollIntoView
-      const isNearBottom = scrollPosition + windowHeight >= documentHeight - 10; // Near bottom
-      // if (isScrollingUp && isNearBottom) return; // Skip scrollIntoView if scrolling up from the bottom
-  
       let newActiveSection = activeSection;
   
       sections.forEach((section, index) => {

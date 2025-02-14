@@ -3,7 +3,12 @@ import { Box, Container, Fade, Grow, Typography} from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { FaFileAlt } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
+import PropTypes from 'prop-types';
 
+
+FadeInBox.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 const FadeInBox = ({ children }) => {
   const theme = useTheme();
