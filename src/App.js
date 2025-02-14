@@ -97,17 +97,21 @@ function App() {
   }, [currentTheme]);
 
   const sections = ['home', 'projects', 'about'];
+  const [isScrollingManually, setIsScrollingManually] = React.useState(false);
+  const [isScrollingByClick, setIsScrollingByClick] = React.useState(false);
   React.useEffect(() => {
+    if (isScrollingManually) return; // Skip scrollIntoView during manual scroll
+  
     sections.forEach((section) => {
       const element = document.getElementById(section);
-      if (activeSection === section) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      if (activeSection === section && !isScrollingManually && isScrollingByClick) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
       }
     });
-  }, [activeSection]);
+  }, [activeSection, isScrollingByClick, isScrollingManually]); // Scroll only on click and not manual scroll
 
   return (
     <ThemeProvider theme={theme}>
@@ -117,6 +121,10 @@ function App() {
         setCurrentTheme={setCurrentTheme}
         activeSection={activeSection}
         setActiveSection={setActiveSection}
+        isScrollingByClick={isScrollingByClick}
+        setIsScrollingByClick={setIsScrollingByClick}
+        isScrollingManually={isScrollingManually}
+        setIsScrollingManually={setIsScrollingManually}
       />
       <div className="section" id="home">
         <Home currentTheme={currentTheme} />

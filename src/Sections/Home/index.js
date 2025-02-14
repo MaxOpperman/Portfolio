@@ -47,7 +47,18 @@ export default function Home({
       >
         <ParticleBackground currentTheme={currentTheme} />
       </Box>
-      <Container sx={{ display: 'flex', alignItems: 'center', zIndex: 1, marginTop: '-10vh' }} maxWidth={false} ref={containerRef}>
+      <Container
+        sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' }, // Column on small screens, row on larger screens
+          alignItems: 'center',
+          zIndex: 1,
+          marginTop: { xs: '-5vh', md: '-10vh' }, // Less margin on mobile
+          textAlign: 'center',
+        }}
+        maxWidth={false}
+        ref={containerRef}
+      >
         <Box sx={{ flex: 1, textAlign: 'center' }}>
           <Slide in timeout={750} container={containerRef.current}>
             <Typography variant='h1' sx={{ mt: 16 }}>
@@ -90,7 +101,7 @@ export default function Home({
           </Fade>
         </Box>
         <Box sx={{ flex: 1, textAlign: 'center' }}>
-          <img src="/Max.JPEG" alt="Max Opperman" style={{ maxHeight: '65vh', borderRadius: '5%' }} />
+          <img src="/images/Max.JPEG" alt="Max Opperman" style={{ maxHeight: '65vh', borderRadius: '5%' }} />
         </Box>
       </Container>
     </Box>

@@ -48,13 +48,13 @@ export default function Projects() {
           I constructed a proof to show that a relaxation of these paths is possible in cases where a perfect Hamiltonian path is not possible.
           I gradutated with a 9/10 for this project.
           <br />
-          <Typography component="a" href="/Lehmers_Conjecture_and_Hamiltonian_Paths_in_Neighbor_swap_Graphs.pdf" style={{ color: 'inherit' }}>
+          <Typography component="a" href="/files/Lehmers_Conjecture_and_Hamiltonian_Paths_in_Neighbor_swap_Graphs.pdf" style={{ color: 'inherit' }}>
             My Master&apos;s Thesis is available here
           </Typography>.
         </>
       ),
-      image: '/permutahedron.png',
-      redirectLink: '/Lehmers_Conjecture_and_Hamiltonian_Paths_in_Neighbor_swap_Graphs.pdf',
+      image: '/images/permutahedron.png',
+      redirectLink: '/files/Lehmers_Conjecture_and_Hamiltonian_Paths_in_Neighbor_swap_Graphs.pdf',
     },
     {
       title: 'Prodrive Technologies',
@@ -64,7 +64,7 @@ export default function Projects() {
           I worked on multiple projects as a Full-Stack developer during this time. 
         </>
       ),
-      image: '/PT_logo2020_Blue-CMYK.png',
+      image: '/images/PT_logo2020_Blue-CMYK.png',
       redirectLink: 'https://prodrive-technologies.com/',
     },
     {
@@ -79,7 +79,7 @@ export default function Projects() {
           <Typography component="a" href="https://github.com/GEWIS/parelpracht-server" style={{ color: 'inherit' }}>back-end</Typography> of this project.
         </>
       ),
-      image: theme.palette.mode === 'dark' ? '/ParelPracht-peach.png' : '/ParelPracht-blue.png',
+      image: theme.palette.mode === 'dark' ? '/images/ParelPracht-peach.png' : '/images/ParelPracht-blue.png',
       redirectLink: 'https://parelpracht.nl/',
     },
     {
@@ -95,7 +95,7 @@ export default function Projects() {
           In a multi-disciplinary team, I gained experience with programming embedded systems.
         </>
       ),
-      image: '/Luca.jpg',
+      image: '/images/Luca.jpg',
       redirectLink: 'https://www.tuecomotive.nl/luca/',
     },
     {
@@ -106,7 +106,7 @@ export default function Projects() {
           This project is used to monitor timesensor data and visualize it in a user-friendly way.
         </>
       ),
-      image: '/DaBS.png',
+      image: '/images/DaBS.png',
       redirectLink: null,
     },
     {
@@ -117,7 +117,7 @@ export default function Projects() {
           During this year as the secretary, I developed my soft skills and learned about the inner workings of an association.
         </>
       ),
-      image: '/GEWIS.jpg',
+      image: '/images/GEWIS.jpg',
       redirectLink: 'https://gewis.nl/',
     },
     {
@@ -125,11 +125,11 @@ export default function Projects() {
       description: (
         <>
           If you are interested in a more detailed overview of my work experience, 
-          you can download my resume <Typography component="a" href="/CV_Max_Opperman.pdf" download style={{ color: 'inherit'}}> here!</Typography>
+          you can download my resume <Typography component="a" href="/files/CV_Max_Opperman.pdf" download style={{ color: 'inherit'}}> here!</Typography>
         </>
       ),
       image: <FaFileAlt size={90} />,
-      redirectLink: '/CV_Max_Opperman.pdf',
+      redirectLink: '/files/CV_Max_Opperman.pdf',
     },
   ];
 

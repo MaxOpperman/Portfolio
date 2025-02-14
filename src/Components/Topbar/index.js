@@ -41,24 +41,42 @@ export default function Topbar({
   setCurrentTheme,
   activeSection,
   setActiveSection,
+  isScrollingByClick,
+  setIsScrollingByClick,
+  isScrollingManually,
+  setIsScrollingManually,
   ...props
 }) {
   const sections = ['home', 'projects', 'about'];
-  const [isUserScrolling, setIsUserScrolling] = React.useState(false);
+  const [lastScrollPosition, setLastScrollPosition] = React.useState(0);
+  const [isScrollingUp, setIsScrollingUp] = React.useState(false);
 
   React.useEffect(() => {
     const handleScroll = () => {
-      if (isUserScrolling) return; // Ignore scroll detection if user clicked a section
-
-      const scrollPosition = window.scrollY + window.innerHeight / 3;
+      if (isScrollingByClick) return; // Skip scroll detection if user clicked
+  
+      setIsScrollingManually(true); // Mark that the user is scrolling manually
+  
+      const scrollPosition = window.scrollY;
+      const documentHeight = document.body.scrollHeight;
+      const windowHeight = window.innerHeight;
+      
+      // Detect scroll direction: If user is scrolling up, set isScrollingUp
+      setIsScrollingUp(scrollPosition < lastScrollPosition);
+      setLastScrollPosition(scrollPosition);
+  
+      // If user is near the bottom and scrolling up, don't allow scrollIntoView
+      const isNearBottom = scrollPosition + windowHeight >= documentHeight - 10; // Near bottom
+      // if (isScrollingUp && isNearBottom) return; // Skip scrollIntoView if scrolling up from the bottom
+  
       let newActiveSection = activeSection;
-
+  
       sections.forEach((section, index) => {
         const el = document.getElementById(section);
         if (el) {
           const { top, height } = el.getBoundingClientRect();
           const sectionTop = top + window.scrollY;
-
+  
           if (index === sections.length - 1) {
             // If it's the last section ("about"), activate it when near the bottom
             if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 10) {
@@ -69,31 +87,35 @@ export default function Topbar({
           }
         }
       });
-
+  
       if (newActiveSection !== activeSection) {
-        setActiveSection(newActiveSection);
+        setActiveSection(newActiveSection, false); // This is from scrolling, not clicking
       }
     };
-
+  
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [sections, activeSection, setActiveSection, isUserScrolling]);
+  }, [activeSection, setActiveSection, isScrollingByClick, isScrollingManually]);
 
   const handleClick = (section) => {
-    setIsUserScrolling(true);
-    setActiveSection(section); // Instantly update the active section
-
+    setIsScrollingByClick(true); // Disable manual scroll detection during click
+    setIsScrollingManually(false); // Reset manual scroll flag
+  
+    setActiveSection(section, true);
+  
     const el = document.getElementById(section);
     if (el) {
       if (section === 'about') {
-        // Scroll to the bottom for "about" section
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
       } else {
         el.scrollIntoView({ behavior: 'smooth' });
       }
     }
-
-    setTimeout(() => setIsUserScrolling(false), 500);
+  
+    // Wait until the smooth scroll animation is likely complete (adjust delay if needed)
+    setTimeout(() => {
+      setIsScrollingByClick(false); // Re-enable scroll detection after clicking
+    }, 800);
   };
 
   return (
