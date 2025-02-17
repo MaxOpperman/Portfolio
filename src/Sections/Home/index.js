@@ -101,7 +101,11 @@ export default function Home({
           </Fade>
         </Box>
         <Box sx={{ flex: 1, textAlign: 'center' }}>
-          <img src="/images/Max.JPEG" alt="Max Opperman" style={{ maxHeight: '65vh', borderRadius: '5%' }} />
+          <img
+            src="/images/Max.JPG"
+            alt="Max Opperman"
+            style={{ maxHeight: '65vh', maxWidth: "90%", borderRadius: '5%' }}
+          />
         </Box>
       </Container>
     </Box>
