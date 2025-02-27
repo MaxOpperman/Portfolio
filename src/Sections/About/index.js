@@ -1,27 +1,27 @@
-import * as React from 'react';
-import { Box, Container, Fade, Grow, Typography } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import { MdOutlineEmail } from 'react-icons/md';
-import { useInView } from 'react-intersection-observer';
+import * as React from 'react'
+import { Box, Container, Fade, Grow, Typography } from '@mui/material'
+import { useTheme } from '@mui/material/styles'
+import { MdOutlineEmail } from 'react-icons/md'
+import { useInView } from 'react-intersection-observer'
 
 export default function About() {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  });
+  })
 
   return (
     <Box sx={{ width: '100%', backgroundColor: theme.palette.background.default, padding: '2rem 0' }}>
       <Container sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
-        <Typography ref={ref} variant='h2' sx={{ width: '100%', textAlign: 'center', marginBottom: '2rem' }}>
+        <Typography ref={ref} variant="h2" sx={{ width: '100%', textAlign: 'center', marginBottom: '2rem' }}>
           About
         </Typography>
         <Fade in={inView} timeout={1000}>
           <Box sx={{ width: '100%' }}>
             <Grow in={inView} timeout={1000}>
-              <Typography variant='body1' sx={{ width: '100%', textAlign: 'left' }}>
+              <Typography variant="body1" sx={{ width: '100%', textAlign: 'left' }}>
                 I am always eager to find the solution and help out. With my work, I hope to contribute to society and improve people&apos;s lives.
                 As a software engineering, I like to work on projects that have a positive impact on the world.
                 I have experience with a variety of programming languages including TypeScript, JavaScript, Python, and Java.
@@ -38,21 +38,25 @@ export default function About() {
           <Box sx={{ width: '100%' }}>
             <Grow in={inView} timeout={1000}>
               <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}>
-                <Typography variant='h5' sx={{ width: '100%', textAlign: 'center' }}>
+                <Typography variant="h5" sx={{ width: '100%', textAlign: 'center' }}>
                   Feel free to reach out to me!
                 </Typography>
                 <br />
-                <Typography component='a' href='mailto:mail@maxopperman.nl' style={{ color: 'inherit' }} sx={{ width: '100%', textAlign: 'center' }}>
+                <Typography component="a" href="mailto:mail@maxopperman.nl" style={{ color: 'inherit' }} sx={{ width: '100%', textAlign: 'center' }}>
                   <MdOutlineEmail size={40} />
                 </Typography>
-                </Box>
+              </Box>
             </Grow>
           </Box>
         </Fade>
       </Container>
-      <Typography variant='body2' color='textSecondary' sx={{ width: '100%', textAlign: 'center', marginTop: '2rem' }}>
-        © {new Date().getFullYear()} Max Opperman. All rights reserved.
+      <Typography variant="body2" color="textSecondary" sx={{ width: '100%', textAlign: 'center', marginTop: '2rem' }}>
+        ©
+        {' '}
+        {new Date().getFullYear()}
+        {' '}
+        Max Opperman. All rights reserved.
       </Typography>
     </Box>
-  );
+  )
 }

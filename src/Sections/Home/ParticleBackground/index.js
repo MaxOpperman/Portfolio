@@ -1,46 +1,46 @@
-import React from "react";
-import PropTypes from 'prop-types';
-import { useEffect, useMemo, useState } from "react";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { useEffect, useMemo, useState } from 'react'
+import Particles, { initParticlesEngine } from '@tsparticles/react'
 // import { loadAll } from "@tsparticles/all"; // if you are going to use `loadAll`, install the "@tsparticles/all" package too.
 // import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
-import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
+import { loadSlim } from '@tsparticles/slim' // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
 // import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
 
 const ParticleBackground = ({
-    currentTheme,
+  currentTheme,
 }) => {
   ParticleBackground.propTypes = {
     currentTheme: PropTypes.string.isRequired,
-  };
-  const [init, setInit] = useState(false);
+  }
+  const [init, setInit] = useState(false)
 
   // this should be run only once per application lifetime
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
+      await loadSlim(engine)
     }).then(() => {
-      setInit(true);
-    });
-  }, []);
+      setInit(true)
+    })
+  }, [])
 
   const options = useMemo(
     () => ({
-        background: {
-            color: {
-                value: currentTheme == "dark" ? "#000000" : "#0d47a1",
-            },
+      background: {
+        color: {
+          value: currentTheme == 'dark' ? '#000000' : '#0d47a1',
         },
+      },
       fpsLimit: 120,
       interactivity: {
         events: {
           onClick: {
             enable: true,
-            mode: "push",
+            mode: 'push',
           },
           onHover: {
             enable: true,
-            mode: "repulse",
+            mode: 'repulse',
           },
         },
         modes: {
@@ -48,17 +48,17 @@ const ParticleBackground = ({
             quantity: 5,
           },
           repulse: {
-              distance: 50,
-              speed: 1,
+            distance: 50,
+            speed: 1,
           },
         },
       },
       particles: {
         color: {
-          value: "#ffffff",
+          value: '#ffffff',
         },
         links: {
-          color: "#ffffff",
+          color: '#ffffff',
           distance: 150,
           enable: true,
           opacity: 0.5,
@@ -66,13 +66,13 @@ const ParticleBackground = ({
         },
         collisions: {
           enable: true,
-          mode: "bounce",
+          mode: 'bounce',
         },
         move: {
-          direction: "none",
+          direction: 'none',
           enable: true,
           outModes: {
-            default: "out",
+            default: 'out',
           },
           random: false,
           speed: 3,
@@ -96,7 +96,7 @@ const ParticleBackground = ({
           value: 0.5,
         },
         shape: {
-          type: "circle",
+          type: 'circle',
         },
         size: {
           value: { min: 1, max: 5 },
@@ -105,7 +105,7 @@ const ParticleBackground = ({
       detectRetina: true,
     }),
     [currentTheme],
-  );
+  )
 
   if (init) {
     return (
@@ -113,10 +113,10 @@ const ParticleBackground = ({
         id="tsparticles"
         options={options}
       />
-    );
+    )
   }
 
-  return <></>;
-};
+  return <></>
+}
 
-export default ParticleBackground;
+export default ParticleBackground

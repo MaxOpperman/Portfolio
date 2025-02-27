@@ -1,36 +1,36 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Box from '@mui/material/Box';
-import ParticleBackground from './ParticleBackground';
-import { Container, Fade, Slide, Typography } from '@mui/material';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { MdOutlineEmail } from 'react-icons/md';
+import * as React from 'react'
+import PropTypes from 'prop-types'
+import Box from '@mui/material/Box'
+import ParticleBackground from './ParticleBackground'
+import { Container, Fade, Slide, Typography } from '@mui/material'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { MdOutlineEmail } from 'react-icons/md'
 
 export default function Home({
   currentTheme,
 }) {
   Home.propTypes = {
     currentTheme: PropTypes.string.isRequired,
-  };
-  const containerRef = React.useRef(null);
+  }
+  const containerRef = React.useRef(null)
 
   const socialLinks = [
     {
-      key: "github",
-      href: "https://github.com/MaxOpperman",
+      key: 'github',
+      href: 'https://github.com/MaxOpperman',
       icon: <FaGithub size={40} />,
     },
     {
-      key: "linkedin",
-      href: "https://linkedin.com/in/max-opperman",
+      key: 'linkedin',
+      href: 'https://linkedin.com/in/max-opperman',
       icon: <FaLinkedin size={40} />,
     },
     {
-      key: "email",
-      href: "mailto:mail@maxopperman.nl",
+      key: 'email',
+      href: 'mailto:mail@maxopperman.nl',
       icon: <MdOutlineEmail size={40} />,
     },
-  ];
+  ]
 
   return (
     <Box sx={{ position: 'relative', height: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -61,12 +61,12 @@ export default function Home({
       >
         <Box sx={{ flex: 1, textAlign: 'center' }}>
           <Slide in timeout={750} container={containerRef.current}>
-            <Typography variant='h1' sx={{ mt: 16 }}>
+            <Typography variant="h1" sx={{ mt: 16 }}>
               Max Opperman
             </Typography>
           </Slide>
           <Fade in timeout={1000} style={{ transitionDelay: '500ms' }}>
-            <Typography variant='h3' sx={{ mt: 4 }}>
+            <Typography variant="h3" sx={{ mt: 4 }}>
               Software Engineer
             </Typography>
           </Fade>
@@ -75,8 +75,8 @@ export default function Home({
               {socialLinks.map((social, index) => (
                 <React.Fragment key={social.key}>
                   <Typography
-                    component='a'
-                    variant='h3'
+                    component="a"
+                    variant="h3"
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -104,10 +104,10 @@ export default function Home({
           <img
             src="/images/Max.JPG"
             alt="Max Opperman"
-            style={{ maxHeight: '65vh', maxWidth: "90%", borderRadius: '5%' }}
+            style={{ maxHeight: '65vh', maxWidth: '90%', borderRadius: '5%' }}
           />
         </Box>
       </Container>
     </Box>
-  );
+  )
 }

@@ -1,15 +1,14 @@
-import './App.css';
-import React from 'react';
-import Home from './Sections/Home';
-import About from './Sections/About';
-import Projects from './Sections/Projects';
-import Topbar from './Components/Topbar';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-
+import './App.css'
+import React from 'react'
+import Home from './Sections/Home'
+import About from './Sections/About'
+import Projects from './Sections/Projects'
+import Topbar from './Components/Topbar'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline'
 
 function App() {
-  const [currentTheme, setCurrentTheme] = React.useState("dark");
+  const [currentTheme, setCurrentTheme] = React.useState('dark')
 
   const [theme, setTheme] = React.useState(createTheme({
     typography: {
@@ -65,12 +64,12 @@ function App() {
         userSelect: 'none',
       },
       subtitle1: {
-        cursor: 'pointer',
-        position: 'relative',
-        display: 'inline-block',
-        color: 'inherit',
-        mx: 1,
-        textDecoration: 'none',
+        'cursor': 'pointer',
+        'position': 'relative',
+        'display': 'inline-block',
+        'color': 'inherit',
+        'mx': 1,
+        'textDecoration': 'none',
         '&::after': {
           content: '""',
           position: 'absolute',
@@ -85,33 +84,33 @@ function App() {
     palette: {
       mode: currentTheme,
     },
-  }));
-  const [activeSection, setActiveSection] = React.useState("home");
+  }))
+  const [activeSection, setActiveSection] = React.useState('home')
   React.useEffect(() => {
-    setTheme((prevTheme) => createTheme({
+    setTheme(prevTheme => createTheme({
       ...prevTheme,
       palette: {
         mode: currentTheme,
       },
-    }));
-  }, [currentTheme]);
+    }))
+  }, [currentTheme])
 
-  const sections = ['home', 'projects', 'about'];
-  const [isScrollingManually, setIsScrollingManually] = React.useState(false);
-  const [isScrollingByClick, setIsScrollingByClick] = React.useState(false);
+  const sections = ['home', 'projects', 'about']
+  const [isScrollingManually, setIsScrollingManually] = React.useState(false)
+  const [isScrollingByClick, setIsScrollingByClick] = React.useState(false)
   React.useEffect(() => {
-    if (isScrollingManually) return; // Skip scrollIntoView during manual scroll
-  
+    if (isScrollingManually) return // Skip scrollIntoView during manual scroll
+
     sections.forEach((section) => {
-      const element = document.getElementById(section);
+      const element = document.getElementById(section)
       if (activeSection === section && !isScrollingManually && isScrollingByClick) {
         element.scrollIntoView({
           behavior: 'smooth',
           block: 'start',
-        });
+        })
       }
-    });
-  }, [activeSection, isScrollingByClick, isScrollingManually]); // Scroll only on click and not manual scroll
+    })
+  }, [activeSection, isScrollingByClick, isScrollingManually]) // Scroll only on click and not manual scroll
 
   return (
     <ThemeProvider theme={theme}>
@@ -136,7 +135,7 @@ function App() {
         <About />
       </div>
     </ThemeProvider>
-  );
+  )
 }
 
-export default App;
+export default App

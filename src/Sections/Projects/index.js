@@ -1,18 +1,18 @@
-import * as React from 'react';
-import { Box, Container, Fade, Grow, Typography} from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import { FaFileAlt } from 'react-icons/fa';
-import { useInView } from 'react-intersection-observer';
-import PropTypes from 'prop-types';
+import * as React from 'react'
+import { Box, Container, Fade, Grow, Typography } from '@mui/material'
+import { useTheme } from '@mui/material/styles'
+import { FaFileAlt } from 'react-icons/fa'
+import { useInView } from 'react-intersection-observer'
+import PropTypes from 'prop-types'
 
 const FadeInBox = ({ children }) => {
-  const theme = useTheme();
+  const theme = useTheme()
   const [ref, inView] = useInView({
     triggerOnce: true,
-  });
+  })
   return (
     <Grow in={inView} timeout={1000}>
-      <Fade in={inView} timeout={1000}>  
+      <Fade in={inView} timeout={1000}>
         <Box
           ref={ref}
           sx={{
@@ -33,15 +33,15 @@ const FadeInBox = ({ children }) => {
         </Box>
       </Fade>
     </Grow>
-  );
-};
+  )
+}
 
 FadeInBox.propTypes = {
   children: PropTypes.node.isRequired,
-};
+}
 
 export default function Projects() {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const projectList = [
     {
@@ -54,7 +54,8 @@ export default function Projects() {
           <br />
           <Typography component="a" href="/files/Lehmers_Conjecture_and_Hamiltonian_Paths_in_Neighbor_swap_Graphs.pdf" style={{ color: 'inherit' }}>
             My Master&apos;s Thesis is available here
-          </Typography>.
+          </Typography>
+          .
         </>
       ),
       image: '/images/permutahedron.png',
@@ -65,7 +66,7 @@ export default function Projects() {
       description: (
         <>
           Between November 2021 and April 2024 I worked part-time at Prodrive Technologies.
-          I worked on multiple projects as a Full-Stack developer during this time. 
+          I worked on multiple projects as a Full-Stack developer during this time.
         </>
       ),
       image: '/images/PT_logo2020_Blue-CMYK.png',
@@ -80,7 +81,9 @@ export default function Projects() {
           {' '}
           <Typography component="a" href="https://github.com/GEWIS/parelpracht-client" style={{ color: 'inherit' }}>front-end</Typography>
           {' and '}
-          <Typography component="a" href="https://github.com/GEWIS/parelpracht-server" style={{ color: 'inherit' }}>back-end</Typography> of this project.
+          <Typography component="a" href="https://github.com/GEWIS/parelpracht-server" style={{ color: 'inherit' }}>back-end</Typography>
+          {' '}
+          of this project.
         </>
       ),
       image: theme.palette.mode === 'dark' ? '/images/ParelPracht-peach.png' : '/images/ParelPracht-blue.png',
@@ -128,55 +131,63 @@ export default function Projects() {
       title: 'Resume',
       description: (
         <>
-          If you are interested in a more detailed overview of my work experience, 
-          you can download my resume <Typography component="a" href="/files/CV_Max_Opperman.pdf" download style={{ color: 'inherit'}}> here!</Typography>
+          If you are interested in a more detailed overview of my work experience,
+          you can download my resume
+          {' '}
+          <Typography component="a" href="/files/CV_Max_Opperman.pdf" download style={{ color: 'inherit' }}> here!</Typography>
         </>
       ),
       image: <FaFileAlt size={90} />,
       redirectLink: '/files/CV_Max_Opperman.pdf',
     },
-  ];
+  ]
 
   return (
     <Box sx={{ width: '100%', backgroundColor: theme.palette.background.default, padding: '2rem 0' }}>
       <Container sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
-        <Typography variant='h2' sx={{ width: '100%', textAlign: 'center', marginBottom: '2rem' }}>
+        <Typography variant="h2" sx={{ width: '100%', textAlign: 'center', marginBottom: '2rem' }}>
           Projects & Experience
         </Typography>
-        {projectList.map((project) => (
+        {projectList.map(project => (
           <FadeInBox key={project.title}>
-            <Typography variant='h5'>
+            <Typography variant="h5">
               {project.title}
             </Typography>
-            {project.redirectLink ? (
-              <Typography component="a" href={project.redirectLink} style={{ color: 'inherit' }}>
-                {typeof project.image === 'string' ? (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    style={{ width: '100%', borderRadius: '8px', margin: '1rem 0' }}
-                  />
-                ) : (
-                  <Box sx={{ margin: '1rem 0' }}>{project.image}</Box>
+            {project.redirectLink
+              ? (
+                  <Typography component="a" href={project.redirectLink} style={{ color: 'inherit' }}>
+                    {typeof project.image === 'string'
+                      ? (
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            style={{ width: '100%', borderRadius: '8px', margin: '1rem 0' }}
+                          />
+                        )
+                      : (
+                          <Box sx={{ margin: '1rem 0' }}>{project.image}</Box>
+                        )}
+                  </Typography>
+                )
+              : (
+                  typeof project.image === 'string'
+                    ? (
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          style={{ width: '100%', borderRadius: '8px', margin: '1rem 0' }}
+                        />
+                      )
+                    : (
+                        <Box sx={{ margin: '1rem', color: 'inherit' }}>{project.image}</Box>
+                      )
                 )}
-              </Typography>
-            ) : (
-              typeof project.image === 'string' ? (
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  style={{ width: '100%', borderRadius: '8px', margin: '1rem 0' }}
-                />
-              ) : (
-                <Box sx={{ margin: '1rem', color: 'inherit' }}>{project.image}</Box>
-              )
-            )}
-            <Typography variant='body1' sx={{ marginTop: '1rem' }}>
+            <Typography variant="body1" sx={{ marginTop: '1rem' }}>
               {project.description}
             </Typography>
           </FadeInBox>
         ))}
       </Container>
     </Box>
-  );
+  )
 }
