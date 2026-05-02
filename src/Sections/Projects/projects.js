@@ -27,14 +27,14 @@ export const useProjectList = () => {
           I constructed a proof to show that a relaxation of these paths is possible in cases where a perfect Hamiltonian path is not possible.
           I graduated with a 9/10 for this project.
           <br />
-          <Typography component="a" href="/files/Lehmers_Conjecture_and_Hamiltonian_Paths_in_Neighbor_swap_Graphs.pdf" style={{ color: 'inherit' }}>
+          <Typography component="a" href="https://research.tue.nl/en/studentTheses/proving-lehmers-conjecture/" style={{ color: 'inherit' }}>
             My Master&apos;s Thesis is available here
           </Typography>
           .
         </>
       ),
       image: '/images/permutahedron.png',
-      redirectLink: '/files/Lehmers_Conjecture_and_Hamiltonian_Paths_in_Neighbor_swap_Graphs.pdf',
+      redirectLink: 'https://research.tue.nl/en/studentTheses/proving-lehmers-conjecture/',
     },
     {
       title: 'Prodrive Technologies',
